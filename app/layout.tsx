@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Knowledge Articles",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="[scrollbar-gutter:stable]">
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={geist.className} suppressHydrationWarning={true}>
         <div className="min-h-screen">
           <Header title="Knowledge Articles" />
           {children}
