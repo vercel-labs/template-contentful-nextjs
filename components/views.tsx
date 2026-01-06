@@ -8,16 +8,15 @@ export function ViewsSkeleton() {
   );
 }
 
-async function getViews(): Promise<number> {
-  // Simulated delay
+async function getViews(slug: string): Promise<number> {
+  // Simulated delay for demonstration purposes
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const EPOCH = 1704067200000;
-  return Date.now() - EPOCH + Math.random();
+  return Math.floor(Math.random() * 4000) + 1000 + slug.length;
 }
 
 export async function Views({ params }: ViewsProps) {
-  await params;
-  const views = await getViews();
+  const { slug } = await params;
+  const views = await getViews(slug);
 
   return (
     <span className="tabular-nums text-black/50">
